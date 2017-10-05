@@ -1,0 +1,20 @@
+<!doctype html>
+<html data-vue-meta-server-rendered {{- htmlAttrs -}}>
+<head>
+    {{- meta | safe -}}
+    {{- title | safe -}}
+    {{- link | safe -}}
+    {%- for link in styles -%}
+        <link href="{{- link -}}" rel="stylesheet" type="text/css">
+    {%- endfor  -%}
+</head>
+<body>
+{{- html | safe -}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/5.0.1/adapter.min.js"></script>
+<script src="/w69b.qrcode.min.js"></script>
+<script defer>window.__INITIAL_STATE__={{-  state | safe -}}</script>
+{%- for script in scripts  -%}
+    <script defer src="{{- script -}}"></script>
+{%- endfor -%}
+</body>
+</html>
