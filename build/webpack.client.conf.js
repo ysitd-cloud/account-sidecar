@@ -6,7 +6,7 @@ module.exports = merge.smart(base, {
     app: ['./src/frontend/clientEntry.js'],
   },
   output: {
-    publicPath: '/',
+    publicPath: '/assets/',
   },
   module: {
     rules: [
