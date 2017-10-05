@@ -10,8 +10,6 @@
 </head>
 <body>
 {{- html | safe -}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/5.0.1/adapter.min.js"></script>
-<script src="/w69b.qrcode.min.js"></script>
 <script defer>window.__INITIAL_STATE__={{-  state | safe -}}</script>
 {%- for script in scripts  -%}
     <script defer src="{{- script -}}"></script>
