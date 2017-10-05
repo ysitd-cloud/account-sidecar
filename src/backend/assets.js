@@ -42,7 +42,7 @@ function serverDevAssets(app) {
 
 function serverProductionAssets(app) {
   return new Promise((resolve) => {
-    app.use(serveStatic('dist'));
+    app.use('/assets', serveStatic('dist'));
     resolve(app);
   });
 }
