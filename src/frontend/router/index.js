@@ -8,5 +8,8 @@ Vue.use(Meta);
 export default function () {
   return new VueRouter({
     mode: 'history',
+    routes: [
+      { path: '/login', component: () => import('../pages/login/Page.vue') },
+    ],
   });
 }
