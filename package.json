@@ -1,6 +1,6 @@
 {
   "name": "account-sidecar",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "Sidecar for rendering template in account",
   "main": "src/backend/server.js",
   "repository": "git+https://github.com/ysitd-cloud/account-sidecar.git",
