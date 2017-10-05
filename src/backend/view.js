@@ -69,7 +69,7 @@ if (!IS_PRODUCTION) {
 module.exports = app => updateServerBundle()
   .then(() => updateRenderer())
   .then(() => {
-    app.get('*', (req, res, next) => {
+    app.all('*', (req, res, next) => {
       const context = {
         url: req.url,
         user: req.user,
