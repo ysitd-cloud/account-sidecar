@@ -16,7 +16,7 @@ export default function () {
   router.beforeEach((to, from, next) => {
     /* globals window */
     if (window !== undefined && window && window.ga) {
-      window.ga('set', 'page', to.path);
+      window.ga('set', 'page', `${window.location.hostname}${to.path}`);
       window.ga('send', 'pageview');
     }
 
