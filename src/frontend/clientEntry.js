@@ -12,3 +12,5 @@ if (window.__INITIAL_STATE__) {
 router.onReady(() => {
   app.$mount('#app');
 });
+
+window.ga('creatre', 'UA-103662489-1', 'auto');
