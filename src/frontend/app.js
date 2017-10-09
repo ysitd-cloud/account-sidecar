@@ -7,9 +7,9 @@ import createStore from './store';
 
 Vue.use(Vuetify);
 
-export default function () {
-  const router = createRouter();
-  const store = createStore();
+export default function (isServer = false) {
+  const router = createRouter(isServer);
+  const store = createStore(isServer);
 
   sync(store, router);
 

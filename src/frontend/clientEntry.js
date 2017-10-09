@@ -1,5 +1,7 @@
 import createApp from './app';
 
+window.ga('create', 'UA-103662489-1', 'auto');
+
 const { app, router, store } = createApp();
 
 /* global window */
@@ -13,4 +15,3 @@ router.onReady(() => {
   app.$mount('#app');
 });
 
-window.ga('creatre', 'UA-103662489-1', 'auto');
