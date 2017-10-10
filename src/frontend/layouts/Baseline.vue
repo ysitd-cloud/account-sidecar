@@ -1,6 +1,12 @@
 <template>
     <v-app>
-        <v-navigation-drawer app v-model="drawer"></v-navigation-drawer>
+        <v-navigation-drawer app v-model="drawer">
+            <v-list>
+                <v-list-tile v-for="link in links" :key="link.url" :href="link.url">
+                    <v-list-tile-content>{{ link.display }}</v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-navigation-drawer>
         <v-toolbar dark color="primary" app>
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
@@ -29,6 +35,9 @@
       data() {
         return {
           drawer: false,
+          links: [
+            { url: '/connect', display: 'Connect Social Account' },
+          ],
         };
       },
     };
