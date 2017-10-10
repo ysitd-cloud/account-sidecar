@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
   components: {
     Baseline: () => import('../../layouts/Baseline.vue'),
@@ -5,9 +7,13 @@ export default {
   },
   data() {
     return {
-      providers: [
-        { id: 'github', name: 'Github', icon: 'fa-github' },
-      ],
+      providers: null,
     };
+  },
+  mounted() {
+    axios.get('/api/v1/providers')
+      .then(({ data }) => {
+        this.providers = data;
+      });
   },
 };
