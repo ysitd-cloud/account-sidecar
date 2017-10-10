@@ -1,7 +1,7 @@
 <template>
     <baseline>
         <v-layout row>
-            <v-flex xs6 sm4 offset-sm4>
+            <v-flex xs12 sm6 offset-sm3 md4 offset-md4 lg2 offset-lg5>
                 <v-card>
                     <v-card-media
                             :src="avatarUrl"
@@ -10,9 +10,11 @@
                     ></v-card-media>
                     <v-card-title primary-title>
                         <div>
-                            <h3 class="headline">{{ displayName }} <small class="grey--text">{{ username }}</small></h3>
+                            <h3 class="headline">{{ displayName }}</h3>
+                            <span class="grey--text">{{ username }}</span>
                         </div>
                     </v-card-title>
+                    <v-divider />
                     <v-card-text>
                         <span>Email: {{ email }}</span>
                     </v-card-text>
