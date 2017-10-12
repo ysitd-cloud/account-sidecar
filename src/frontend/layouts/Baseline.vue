@@ -2,7 +2,7 @@
     <v-app>
         <v-navigation-drawer app v-model="drawer">
             <v-list>
-                <v-list-tile v-for="link in links" :key="link.url" :href="link.url">
+                <v-list-tile v-for="link in links" :key="link.url" :to="link.url">
                     <v-list-tile-content>{{ link.display }}</v-list-tile-content>
                 </v-list-tile>
             </v-list>
