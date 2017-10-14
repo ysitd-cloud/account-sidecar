@@ -11,5 +11,11 @@ if (window.__INITIAL_STATE__) {
 
 router.onReady(() => {
   app.$mount('#app');
+  window.gtag('config', 'UA-103662489-1', {
+    send_page_view: false,
+    linker: {
+      domains: ['ysitd.cloud'],
+    },
+  });
 });
 

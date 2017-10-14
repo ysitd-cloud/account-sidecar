@@ -12,6 +12,7 @@ export default function (isServer) {
       { path: '/login', component: () => import('../pages/login/Page.vue') },
       { path: '/connect', component: () => import('../pages/connect/Page.vue') },
       { path: '/', component: () => import('../pages/home/Page.vue') },
+      { path: '/password', component: () => import('../pages/password/Page.vue') },
     ],
   });
 
@@ -21,9 +22,6 @@ export default function (isServer) {
       if (window.gtag) {
         window.gtag('config', 'UA-103662489-1', {
           page_path: to.path,
-          linker: {
-            domains: ['ysitd.cloud'],
-          },
         });
       }
       next();
