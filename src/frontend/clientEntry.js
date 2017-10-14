@@ -1,7 +1,5 @@
 import createApp from './app';
 
-window.ga('create', 'UA-103662489-1', 'auto');
-
 const { app, router, store } = createApp();
 
 /* global window */

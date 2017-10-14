@@ -18,9 +18,13 @@ export default function (isServer) {
   if (!isServer) {
     router.beforeEach((to, from, next) => {
       /* globals window */
-      if (window.ga) {
-        window.ga('set', 'page', `${window.location.hostname}${to.path}`);
-        window.ga('send', 'pageview');
+      if (window.gtag) {
+        window.gtag('config', 'UA-103662489-1', {
+          page_path: to.path,
+          linker: {
+            domains: ['ysitd.cloud'],
+          },
+        });
       }
       next();
     });
