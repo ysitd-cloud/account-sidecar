@@ -10,7 +10,7 @@
         <v-toolbar dark color="primary" app>
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
-                <a href="/">YSITD Cloud Account</a>
+                <router-link to="/">YSITD Cloud Account</router-link>
             </v-toolbar-title>
         </v-toolbar>
         <main>
