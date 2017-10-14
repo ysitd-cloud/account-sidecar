@@ -29,9 +29,14 @@ function serverDevAssets(app) {
 
   const hotMiddleware = require('webpack-hot-middleware')(compiler, {
     log: () => {},
+    path: '/assets/__webpack_hmr',
   });
 
   return new Promise((resolve) => {
+    app.use((req, res, next) => {
+      res.set('Access-Control-Allow-Origin', '*');
+      next();
+    });
     app.use(devMiddleware);
     app.use(hotMiddleware);
     devMiddleware.waitUntilValid(() => {

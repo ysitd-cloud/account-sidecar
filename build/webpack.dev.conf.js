@@ -13,6 +13,9 @@ module.exports = merge.smart(base, {
   module: {
     rules: utils.styleLoaders({ sourceMap: true }),
   },
+  output: {
+    publicPath: 'http://localhost:8080/assets/',
+  },
   plugins: [
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new HotModuleReplacementPlugin(),

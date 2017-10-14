@@ -1,5 +1,5 @@
 /* eslint-disable */
-const hotClient = require('webpack-hot-middleware/client?noInfo=true&reload=true');
+const hotClient = require('webpack-hot-middleware/client?noInfo=true&reload=true&dynamicPublicPath=true&path=__webpack_hmr');
 
 hotClient.subscribe(function (event) {
   if (event.action === 'reload') {
