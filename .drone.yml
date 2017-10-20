@@ -31,6 +31,6 @@ pipeline:
     strip_prefix: dist/
     path_style: true
     exclude:
-      - assets.json
+      - **/*.json
     when:
       event: [push, tag]
