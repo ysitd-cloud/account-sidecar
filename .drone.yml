@@ -9,7 +9,7 @@ pipeline:
     secrets: [ aws_access_key_id, aws_secret_access_key, s3_endpoint ]
     restore: true
     path: path/account-sidecar
-    file: /vendor.tgz
+    filename: /vendor.tgz
 
   deps:
     image: node:6-alpine
