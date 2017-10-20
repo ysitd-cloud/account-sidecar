@@ -3,42 +3,11 @@ workspace:
   path: account-sidecar
 
 pipeline:
-  restore_cache:
-    image: plugins/s3-cache:1
-    pull: true
-    secrets: [ aws_access_key_id, aws_secret_access_key, s3_endpoint ]
-    restore: true
-    path: path/account-sidecar
-    filename: /vendor.tgz
-
   deps:
     image: node:6-alpine
     pull: true
     commands:
       - yarn
-
-  rebuild-cache:
-    group: cache
-    image: plugins/s3-cache:1
-    pull: true
-    secrets: [ aws_access_key_id, aws_secret_access_key, s3_endpoint ]
-    rebuild: true
-    path: drone/account-sidecar
-    filename: /vendor.tgz
-    mount:
-      - node_modules
-      - /root/.yarn
-    when:
-      event: push
-
-  flush-cache:
-    group: cache
-    image: plugins/s3-cache:1
-    pull: true
-    secrets: [ aws_access_key_id, aws_secret_access_key, s3_endpoint ]
-    flush: true
-    flush_age: 7
-    flush_path: drone/account-sidecar/vendor.tgz
 
   lint:
     group: test
