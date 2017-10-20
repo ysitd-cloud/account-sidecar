@@ -10,14 +10,12 @@ pipeline:
       - yarn
 
   lint:
-    group: test
     image: node:6-alpine
     pull: true
     commands:
       - yarn lint
 
   build:
-    group: test
     image: node:6-alpine
     pull: true
     commands:
