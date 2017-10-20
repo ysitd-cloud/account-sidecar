@@ -48,7 +48,7 @@ pipeline:
       - yarn lint
 
   build:
-    groupt: test
+    group: test
     image: node:6-alpine
     pull: true
     commands:
