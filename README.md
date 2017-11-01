@@ -4,8 +4,8 @@ Node.js Sidecar for rendering pages
 
 ## Environment
 
-- node.js 6.11
-- yarn 1.1
+- node.js 8.9
+- yarn 1.2
 
 ## Setup
 
@@ -13,4 +13,10 @@ Node.js Sidecar for rendering pages
 yarn
 yarn setup:frontend
 yarn setup:backend
+```
+
+## Development
+
+```bash
+yarn dev
 ```

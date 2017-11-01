@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const staticServe = require('./static');
+const assets = require('./assets');
+const view = require('./view');
 
 const app = express();
 
@@ -12,9 +15,10 @@ app.use(helmet());
 
 require('./template')(app);
 
-require('./static')(app)
-  .then(require('./assets'))
-  .then(require('./view'))
-  .catch(console.error);
+(async () => {
+  await staticServe(app);
+  await assets(app);
+  await view(app);
+})();
 
 app.listen(process.env.PORT || 8080);
