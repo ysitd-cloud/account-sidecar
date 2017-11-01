@@ -4,7 +4,7 @@
   "description": "Sidecar for rendering template in account",
   "main": "src/backend/server.js",
   "repository": "git+https://github.com/ysitd-cloud/account-sidecar.git",
-  "license": "MIT",
+  "license": "AGPL-3.0+",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .vue,.js .",
