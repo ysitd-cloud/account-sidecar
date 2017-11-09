@@ -2,7 +2,7 @@
   <v-app>
     <main>
       <v-container fluid>
-        <slot></slot>
+        <slot />
       </v-container>
     </main>
   </v-app>

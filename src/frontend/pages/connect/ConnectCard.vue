@@ -25,6 +25,7 @@
 
 <script>
     export default {
+      name: 'ConnectCard',
       props: {
         id: {
           type: String,

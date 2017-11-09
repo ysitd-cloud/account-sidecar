@@ -4,7 +4,11 @@
                 v-if="providers === null"
                 indeterminate
         />
-        <v-container fluid grid-list-md v-else>
+        <v-container
+                v-else
+                fluid
+                grid-list-md
+        >
             <v-layout row wrap>
                 <v-flex
                         xs12

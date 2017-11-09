@@ -16,7 +16,7 @@
         <main>
             <v-content>
                 <v-container fluid>
-                    <slot></slot>
+                    <slot />
                 </v-container>
             </v-content>
         </main>
