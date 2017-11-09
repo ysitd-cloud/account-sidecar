@@ -56,9 +56,9 @@ function updateRenderer() {
 function startWatch() {
   const watcher = chokidar.watch(BUNDLE_PATH);
 
-  watcher.on('change', () => {
-    updateServerBundle()
-      .then(() => updateRenderer());
+  watcher.on('change', async () => {
+    await updateServerBundle();
+    await updateRenderer();
   });
 }
 
@@ -66,40 +66,39 @@ if (!IS_PRODUCTION) {
   startWatch();
 }
 
-module.exports = app => updateServerBundle()
-  .then(() => updateRenderer())
-  .then(() => {
-    app.all('*', (req, res, next) => {
-      const context = {
-        url: req.url,
-        user: req.user,
-        params: Object.assign({}, req.query, req.body),
-      };
+module.exports = async (app) => {
+  await updateServerBundle();
+  await updateRenderer();
+  app.all('*', (req, res, next) => {
+    const context = {
+      url: req.url,
+      user: req.user,
+      params: Object.assign({}, req.query, req.body),
+    };
 
-      renderer.renderToString(context, (err, html) => {
-        if (err) {
-          if ('code' in err) {
-            res.status(err.code);
-            res.end('404 Not Found');
-          } else {
-            next(err);
-          }
+    renderer.renderToString(context, (err, html) => {
+      if (err) {
+        if ('code' in err) {
+          res.status(err.code);
+          res.end('404 Not Found');
         } else {
-          const {
-            title, link, meta, script,
-          } = context.meta.inject();
-          res.render('app.jinja', {
-            html,
-            scripts,
-            styles,
-            state: JSON.stringify(context.state),
-            title: title.text(),
-            link: link.text(),
-            meta: meta.text(),
-            script: script.text(),
-          });
+          next(err);
         }
-      });
+      } else {
+        const {
+          title, link, meta, script,
+        } = context.meta.inject();
+        res.render('app.jinja', {
+          html,
+          scripts,
+          styles,
+          state: JSON.stringify(context.state),
+          title: title.text(),
+          link: link.text(),
+          meta: meta.text(),
+          script: script.text(),
+        });
+      }
     });
-    return app;
   });
+};
