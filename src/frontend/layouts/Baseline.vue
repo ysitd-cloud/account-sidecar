@@ -36,7 +36,6 @@
         return {
           drawer: false,
           links: [
-            { url: '/connect', display: 'Connect Social Account' },
             { url: '/password', display: 'Change Password' },
           ],
         };
