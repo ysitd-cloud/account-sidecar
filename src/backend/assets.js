@@ -24,7 +24,7 @@ function serverDevAssets(app) {
 
   const devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: devConfig.output.publicPath,
-    quiet: true,
+    logLevel: 'silent',
   });
 
   const hotMiddleware = require('webpack-hot-middleware')(compiler, {
@@ -32,24 +32,16 @@ function serverDevAssets(app) {
     path: '/assets/__webpack_hmr',
   });
 
-  return new Promise((resolve) => {
-    app.use((req, res, next) => {
-      res.set('Access-Control-Allow-Origin', '*');
-      next();
-    });
-    app.use(devMiddleware);
-    app.use(hotMiddleware);
-    devMiddleware.waitUntilValid(() => {
-      resolve(app);
-    });
+  app.use((req, res, next) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    next();
   });
+  app.use(devMiddleware);
+  app.use(hotMiddleware);
 }
 
 function serverProductionAssets(app) {
-  return new Promise((resolve) => {
-    app.use('/assets', serveStatic('dist'));
-    resolve(app);
-  });
+  app.use('/assets', serveStatic('dist'));
 }
 
 module.exports = IS_PRODUCTION ? serverProductionAssets : serverDevAssets;

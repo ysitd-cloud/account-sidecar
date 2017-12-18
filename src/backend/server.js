@@ -16,8 +16,8 @@ app.use(helmet());
 require('./template')(app);
 
 (async () => {
-  await staticServe(app);
-  await assets(app);
+  staticServe(app);
+  assets(app);
   await view(app);
 })();
 

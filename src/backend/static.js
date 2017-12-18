@@ -1,6 +1,5 @@
 const serveStatic = require('serve-static');
 
-module.exports = app => new Promise((resolve) => {
+module.exports = (app) => {
   app.use(serveStatic('static'));
-  resolve(app);
-});
+};
