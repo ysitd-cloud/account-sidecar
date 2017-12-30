@@ -10,7 +10,6 @@ export default function (isServer) {
     mode: 'history',
     routes: [
       { path: '/login', component: () => import('../pages/login/Page.vue') },
-      { path: '/connect', component: () => import('../pages/connect/Page.vue') },
       { path: '/', component: () => import('../pages/home/Page.vue') },
       { path: '/password', component: () => import('../pages/password/Page.vue') },
     ],
